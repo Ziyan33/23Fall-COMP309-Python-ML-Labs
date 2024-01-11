@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prediction Form</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Enter Data for Predictions</h1>
+    <form action="/predict" method="post">
+        <label for="primary_offence">Primary Offence:</label>
+        <select id="primary_offence" name="primary_offence">
+            <option value="default" disabled selected>Select Primary Offence</option>
+            <option value="0">Theft under</option>
+            <option value="1">Theft under - bicycle</option>
+            <option value="2">B&E</option>
+        </select> 
+
+        <label for="bike_cost">Bike Cost:</label>
+        <input type="text" id="bike_cost" name="bike_cost" placeholder="Enter bike cost without $ symbol" />
+
+        <label for="report_doy">Report DOY:</label>
+        <input type="number" id="report_doy" name="report_doy" placeholder="Enter report day of year" />
+
+        <label for="BIKE_MAKE">Bike Make:</label>
+        <select id="BIKE_MAKE" name="BIKE_MAKE">
+            <option value="default" disabled selected>Select Bike Make</option>
+            <option value="0">OT</option>
+            <option value="1">UK</option>
+            <option value="2">GI</option>
+        </select>
+
+        <label for="BIKE_MODEL">Bike Model:</label>
+        <select id="BIKE_MODEL" name="BIKE_MODEL">
+            <option value="default" disabled selected>Select Bike Model</option>
+            <option value="UNKNOWN">Unknown</option>
+            <option value="HYBRID">Hybrid</option>
+            <option value="ESCAPE">Escape</option>
+        </select>
+
+        <input type="submit" value="Predict">
+    </form>
+</body>
+</html>

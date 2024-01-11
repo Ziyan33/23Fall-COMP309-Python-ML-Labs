@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prediction Results</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Prediction Results</h1>
+<div class="result-container">
+        <div class="model-predictions">
+            <h2 class="model-name">Logistic Regression Model Predictions</h2>
+            <ul class="prediction-list">
+                {% for probability in log_reg_probabilities %}
+                <li class="prediction-item">Probability: {{ '%.2f' % (probability * 100) }}%</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="model-predictions">
+            <h2 class="model-name">Decision Tree Model Predictions</h2>
+            <ul class="prediction-list">
+                {% for probability in decision_tree_probabilities %}
+                <li class="prediction-item">Probability: {{ '%.2f' % (probability * 100) }}%</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
